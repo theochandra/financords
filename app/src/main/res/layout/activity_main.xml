@@ -1,18 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="viewModel"
+            type="com.financords.android.MainViewModel" />
+    </data>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+        android:id="@+id/screen_login"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".MainActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_m"
+                android:background="@color/white_200"
+                app:cardCornerRadius="@dimen/radius_m"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/padding_l"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_label_login"
+                        android:text="@string/label_login"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/font_size_l"
+                        android:textAlignment="center"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        tools:text="LOGIN" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_user_name"
+                        android:hint="@string/hint_user_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:errorEnabled="true"
+                        android:layout_marginTop="@dimen/margin_l"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_user_name"
+                            android:maxLines="1"
+                            android:textSize="@dimen/font_size_m"
+                            android:inputType="textNoSuggestions|textEmailAddress"
+                            android:text="@={viewModel.login.email}"
+                            app:error="@{viewModel.login.emailError}"
+                            app:onFocus="@{viewModel.getEmailOnFocusChangeListener()}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/text_input_password"
+                        android:hint="@string/hint_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:errorEnabled="true"
+                        android:layout_marginTop="@dimen/margin_m"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/et_password"
+                            android:maxLines="1"
+                            android:textSize="@dimen/font_size_m"
+                            android:inputType="textPassword"
+                            android:text="@={viewModel.login.password}"
+                            app:error="@{viewModel.login.passwordError}"
+                            app:onFocus="@{viewModel.getPasswordOnFocusChangeListener()}"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <CheckBox
+                        android:id="@+id/cb_remember_me"
+                        android:text="@string/label_remember_me"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <Button
+                        android:id="@+id/btn_login"
+                        android:text="@string/label_btn_login"
+                        android:enabled="@{viewModel.login.valid}"
+                        android:onClick="@{() -> viewModel.onButtonClick()}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/padding_m"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
