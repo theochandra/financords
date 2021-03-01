@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">financords</string>
+
+    <string name="label_login">Login</string>
+    <string name="hint_user_name">Masukkan username/email Anda</string>
+    <string name="hint_password">Masukkan password Anda</string>
+    <string name="label_remember_me">Ingat saya</string>
+    <string name="label_btn_login">Login</string>
+
+    <string name="error_format_invalid">Format is invalid</string>
+    <string name="error_too_short">Too short</string>
 </resources>
