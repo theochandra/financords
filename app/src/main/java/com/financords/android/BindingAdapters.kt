@@ -39,17 +39,15 @@ fun getScrollY(scrollView: ScrollView): Int {
 )
 fun setScrollListeners(
     scrollView: ScrollView,
-    scrollListener: ScrollView.OnScrollChangeListener?,
+    scrollListener: View.OnScrollChangeListener?,
     inverseBindingListener: InverseBindingListener?
 ) {
     val newListener = if (inverseBindingListener == null) {
         scrollListener
     } else {
-        object : ScrollView.OnScrollChangeListener() {
-            override fun onScrollChange(v: View, scrollX: Int, scrollY: Int, oldX: Int, oldY: Int) {
-                scrollListener?.onScrollChange(v, scrollX, scrollY, oldX, oldY)
-                inverseBindingListener.onChange()
-            }
+        View.OnScrollChangeListener { v, scrollX, scrollY, oldX, oldY ->
+            scrollListener?.onScrollChange(v, scrollX, scrollY, oldX, oldY)
+            inverseBindingListener.onChange()
         }
     }
     scrollView.setOnScrollChangeListener(newListener)
