@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.financords.android.legal.LegalViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".legal.LegalActivity">
+
+        <ScrollView
+            app:scrollY="@={viewModel.model.scrollY}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/lorem_ipsum"
+                android:padding="@dimen/padding_m"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:src="@android:drawable/ic_menu_upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_m"
+            android:visibility="@{viewModel.model.scrollToTopFabVisibility}"
+            android:onClick="@{() -> viewModel.model.scrollToTop()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
