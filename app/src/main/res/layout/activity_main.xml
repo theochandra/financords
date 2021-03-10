@@ -7,7 +7,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.financords.android.MainViewModel" />
+            type="com.financords.android.login.MainViewModel" />
     </data>
 
     <ScrollView
@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        tools:context=".MainActivity">
+        tools:context=".login.MainActivity">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package com.financords.android
+package com.financords.android.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

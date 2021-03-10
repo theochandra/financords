@@ -1,8 +1,10 @@
-package com.financords.android
+package com.financords.android.login
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
 import androidx.databinding.ObservableField
+import com.financords.android.BR
+import com.financords.android.R
 
 class LoginModel : BaseObservable() {
 

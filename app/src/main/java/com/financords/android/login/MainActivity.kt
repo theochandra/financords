@@ -1,10 +1,11 @@
-package com.financords.android
+package com.financords.android.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
+import com.financords.android.R
 import com.financords.android.databinding.ActivityMainBinding
 import com.financords.android.legal.LegalActivity
 
