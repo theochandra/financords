@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Financords">
-        <activity android:name=".legal.LegalActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".search.SearchActivity"></activity>
+        <activity android:name=".singleliveevent.SingleLiveEventActivity" />
+        <activity android:name=".legal.LegalActivity" />
+        <activity android:name=".login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
